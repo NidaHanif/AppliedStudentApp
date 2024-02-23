@@ -7,7 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\NewFolder\**" />
+    <Content Remove="Pages\NewFolder\**" />
+    <EmbeddedResource Remove="Pages\NewFolder\**" />
+    <None Remove="Pages\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\DataBase\Students.db" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="DB\Students.db" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Authentication\" />
+    <Folder Include="wwwroot\DataBase\" />
   </ItemGroup>
 
 </Project>
