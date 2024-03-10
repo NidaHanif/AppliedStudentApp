@@ -62,8 +62,6 @@
 </nav>*@
 
 
-@*Navigation 2*@
-
 <!-- NavMenu.razor -->
 
 
@@ -74,48 +72,31 @@
         @*<a class="navbar-brand" href="#">Dar ut Tarteel ( Tarteel Schooling system )</a>*@
         <img src="/Gallery/images.jpg" alt="Dar ut tarteel" />
     </div>
+    <div class="navbar-links">
         <ul>
             <li class="nav-item">
-                <a href="/" class="nav-link active"></a>
             </li>
-            
+
             <li class="nav-item">
                 <a href="/" class="nav-link active">Home</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                    Student
-                </a>
-                <div class="dropdown-contents">
-                    <a href="">Student1</a>
-                    <a href="">Student2</a>
-                    <a href="">Student3</a>
-                    <a href="">Student4</a>
-                </div>
+            <li class="nav-item">
+                <a href="/Students" class="nav-link">Student</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                    Teacher
-                </a>
-                <div class="dropdown-contents">
-                    <a href="">Teacher1</a>
-                    <a href="">Teacher2</a>
-                    <a href="">Teacher3</a>
-                    <a href="">Teacher4</a>
-                </div>
+
+            <li class="nav-item">
+                <a href="/Teacher" class="nav-link">Teacher</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                    Class
-                </a>
-                <div class="dropdown-contents">
-                    <a href="">Class1</a>
-                    <a href="">Class2</a>
-                    <a href="">Class3</a>
-                    <a href="">Class4</a>
-                </div>
+            <li class="nav-item">
+                <a href="/Class" class="nav-link">Class</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item">
+                <a href="/Session" class="nav-link">Session</a>
+            </li>
+            <li class="nav-item">
+                <a href="/ClassReg" class="nav-link">Class Registration</a>
+            </li>
+            @*<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                     Section
                 </a>
@@ -125,7 +106,7 @@
                     <a href="">Section3</a>
                     <a href="">Section4</a>
                 </div>
-            </li>
+            </li>*@
             @*<li class="dropdown">
                 <a href="#" class="dropbtn dropdown-toggle">Student</a>
                 <div class="dropdown-content">
@@ -139,7 +120,7 @@
                 <a href="/" class="nav-link active">Contact Us</a>
             </li>
             
-            <button type="button" class="btn btn-primary" style="width: 80px; margin: 0px;">Login</button>
+            <button type="button" class="btn btn-primary" style="width: 80px; margin: 0px;" >Login</button>
             
         </ul>
     </div>

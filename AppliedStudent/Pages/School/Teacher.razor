@@ -1,0 +1,61 @@
+﻿@page "/Teacher"
+
+
+@code {
+
+}
+
+<div class="form-container">
+    <h2>Teacher Information Form</h2>
+    <form>
+        <div class="row mt-2">
+        <div class="col-md-3">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+        </div>
+            <div class="col-md-3">
+            <label for="teacherName">Teacher Name:</label>
+            <input type="text" id="teacherName" name="teacherName" required>
+        </div>
+            <div class="col-md-3">
+            <label for="birthDate">Birth Date:</label>
+            <input type="date" id="birthDate" name="birthDate" required>
+        </div>
+        </div>
+        <div class="row mt-2">
+        <div class="col-md-3">
+            <label for="joinDate">Join Date:</label>
+            <input type="date" id="joinDate" name="joinDate" required>
+        </div>
+            <div class="col-md-3">
+                <label for="education">Education:</label>
+            <input type="text" id="education" name="education" required>
+        </div>
+            <div class="col-md-3">
+            <label for="cnic">CNIC:</label>
+            <input type="text" id="cnic" name="cnic" required>
+        </div>
+        </div>
+        <div class="row mt-2">
+        <div class="col-md-3">
+            <label for="address1">Address Line 1:</label>
+            <input type="text" id="address1" name="address1" required>
+        </div>
+            <div class="col-md-3">
+            <label for="address2">Address Line 2:</label>
+            <input type="text" id="address2" name="address2">
+        </div>
+            <div class="col-md-3">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+        </div>
+        </div>
+        <div class="col-md-3">
+            <label for="reference">Reference:</label>
+            <input type="text" id="reference" name="reference" required>
+        </div>
+                <div class="col-md-3">
+                    <input type="submit" value="Submit">
+                </div>
+    </form>
+</div>

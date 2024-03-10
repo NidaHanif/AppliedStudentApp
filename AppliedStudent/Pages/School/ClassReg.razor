@@ -1,0 +1,74 @@
+﻿@page "/ClassReg"
+
+
+@code {
+
+}
+
+<div class="form-container">
+    <h2>Registration Form</h2>
+    <form>
+        <div class="row mt-2">
+        <div class="col-md-3">
+            <label for="ClassID">Class ID:</label>
+            <input type="text" id="ClassID" name="ClassID" required>
+        </div>
+        <div class="col-md-3">
+            <label for="StudentID">Student ID:</label>
+            <input type="text" id="StudentID" name="StudentID" required>
+        </div>
+        </div>
+        <div class="row mt-2">
+        <div class="col-md-3">
+            <label for="TeacherID">Teacher ID:</label>
+            <input type="text" id="TeacherID" name="TeacherID" required>
+        </div>
+        <div class="col-md-3">
+            <label for="Remarks">Remarks:</label>
+            <textarea id="Remarks" name="Remarks" rows="4"></textarea>
+        </div>
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="Submit">
+        </div>
+        
+    </form>
+</div>
+
+
+<div class="container">
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Class ID</th>
+                <th>Student ID</th>
+                <th>Teacher ID</th>
+                <th>Remarks</th>
+                <th><button class="btn btn-success btn-By"><i class="bi bi-plus"></i></button></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align:right; padding-right: 50px;"></td>
+                <td>
+                    <button type="submit" class="btn btn-link btn-My"><i class="bi bi-pencil"></i></button>
+                    |<button type="submit" class="btn btn-dangerous"><i class="bi bi-trash3" style=" color: red;margin-right:5px"></i></button>
+                </td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

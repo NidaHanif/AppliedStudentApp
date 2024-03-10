@@ -1,5 +1,336 @@
-﻿<h3>Students</h3>
+﻿@page "/Students"
+
+
 
 @code {
 
-}
+}@*
+<div class="container">
+<div class="card">
+    Student Name
+</div>
+
+
+@*<div class="cards">
+    <div class="row imgcard d-flex gap-4 flex-wrap justify-content-center mb-4">
+        <img src="https://images.pexels.com/photos/1815257/pexels-photo-1815257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+    </div>
+
+    <div class="content">
+        <h2>keep Smiling</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            doloribus vitae fugit enim repudiandae
+        </p>
+    </div>
+</div>
+<div class="cards">
+    <div class="row imgcard d-flex gap-4 flex-wrap justify-content-center mb-4">
+        <img src="https://images.pexels.com/photos/1815257/pexels-photo-1815257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+    </div>
+
+    <div class="content">
+        <h2>keep Smiling</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            doloribus vitae fugit enim repudiandae
+        </p>
+    </div>
+</div>
+<div class="cards">
+    <div class="imgbox">
+        <img src="https://images.pexels.com/photos/1815257/pexels-photo-1815257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+    </div>
+
+    <div class="content">
+        <h2>keep Smiling</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            doloribus vitae fugit enim repudiandae
+        </p>
+    </div>
+</div>
+</div>
+
+    <form action="#" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br><br>
+
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName"><br><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="familyName">Family Name:</label>
+        <input type="text" id="familyName" name="familyName"><br><br>
+
+        <label for="fatherName">Father Name:</label>
+        <input type="text" id="fatherName" name="fatherName"><br><br>
+
+        <label for="motherName">Mother Name:</label>
+        <input type="text" id="motherName" name="motherName"><br><br>
+
+        <label for="fatherContactNo">Father Contact No:</label>
+        <input type="text" id="fatherContactNo" name="fatherContactNo"><br><br>
+
+        <label for="motherContactNo">Mother Contact No:</label>
+        <input type="text" id="motherContactNo" name="motherContactNo"><br><br>
+
+        <label for="birthDate">Birth Date:</label>
+        <input type="date" id="birthDate" name="birthDate"><br><br>
+
+        <label for="address1">Address 1:</label>
+        <input type="text" id="address1" name="address1"><br><br>
+
+        <label for="address2">Address 2:</label>
+        <input type="text" id="address2" name="address2"><br><br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city"><br><br>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country"><br><br>
+
+        <label for="joinDate">Join Date:</label>
+        <input type="date" id="joinDate" name="joinDate"><br><br>
+
+        <label for="education">Education:</label>
+        <input type="text" id="education" name="education"><br><br>
+
+        <label for="previousSchoolName">Previous School Name:</label>
+        <input type="text" id="previousSchoolName" name="previousSchoolName"><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <label for="fatherCNIC">Father CNIC:</label>
+        <input type="text" id="fatherCNIC" name="fatherCNIC"><br><br>
+
+        <label for="motherCNIC">Mother CNIC:</label>
+        <input type="text" id="motherCNIC" name="motherCNIC"><br><br>
+
+        <label for="pathFNNIC">Path to Father's CNIC:</label>
+        <input type="file" id="pathFNNIC" name="pathFNNIC"><br><br>
+
+        <label for="pathMCNIC">Path to Mother's CNIC:</label>
+        <input type="file" id="pathMCNIC" name="pathMCNIC"><br><br>
+
+        <label for="pathPhoto">Path to Photo:</label>
+        <input type="file" id="pathPhoto" name="pathPhoto"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>*@
+
+
+<div class="form-container">
+    <h2>Student Information Form</h2>
+    <form>
+        <div class="row mt-2">
+        <div class="col-md-3">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div class="col-md-3">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName">
+        </div>
+            <div class="col-md-3">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-3">
+            <label for="familyName">Family Name</label>
+            <input type="text" id="familyName" name="familyName">
+        </div>
+            <div class="col-md-3">
+            <label for="fatherName">Father's Name</label>
+            <input type="text" id="fatherName" name="fatherName">
+        </div>
+            <div class="col-md-3">
+            <label for="motherName">Mother's Name</label>
+            <input type="text" id="motherName" name="motherName">
+        </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-3">
+            <label for="fatherContractNo">Father's Contact No</label>
+            <input type="text" id="fatherContractNo" name="fatherContractNo">
+        </div>
+            <div class="col-md-3">
+            <label for="motherContactNo">Mother's Contact No</label>
+            <input type="text" id="motherContactNo" name="motherContactNo">
+        </div>
+            <div class="col-md-3">
+            <label for="birthDate">Birth Date</label>
+            <input type="date" id="birthDate" name="birthDate">
+        </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-3">
+            <label for="address1">Address 1</label>
+            <input type="text" id="address1" name="address1">
+        </div>
+            <div class="col-md-3">
+            <label for="address2">Address 2</label>
+            <input type="text" id="address2" name="address2">
+        </div>
+            <div class="col-md-3">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city">
+        </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-3">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country">
+        </div>
+            <div class="col-md-3">
+            <label for="joinDate">Join Date</label>
+            <input type="date" id="joinDate" name="joinDate">
+        </div>
+            <div class="col-md-3">
+            <label for="education">Education</label>
+            <input type="text" id="education" name="education">
+        </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-3">
+            <label for="previousSchoolName">Previous School Name</label>
+            <input type="text" id="previousSchoolName" name="previousSchoolName">
+        </div>
+            <div class="col-md-3">
+            <label for="gender">Gender</label>
+                <select id="gender" name="gender" style="width: 70%;">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+            <div class="col-md-3">
+            <label for="fatherCNIC">Father's CNIC</label>
+            <input type="text" id="fatherCNIC" name="fatherCNIC">
+        </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-3">
+            <label for="motherCNIC">Mother's CNIC</label>
+            <input type="text" id="motherCNIC" name="motherCNIC">
+        </div>
+            <div class="col-md-3">
+            <label for="pathFNNIC">Path to Father's CNIC</label>
+            <input type="file" id="pathFNNIC" name="pathFNNIC">
+        </div>
+            <div class="col-md-3">
+            <label for="pathMCNIC">Path to Mother's CNIC</label>
+            <input type="file" id="pathMCNIC" name="pathMCNIC">
+        </div>
+        </div>
+            <div class="col-md-3">
+            <label for="pathPhoto">Path to Photo</label>
+            <input type="file" id="pathPhoto" name="pathPhoto">
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+
+
+<div class="container">
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Family Name</th>
+                <th>Father's Name</th>
+                <th>Mother's Name</th>
+                <th>Father's No.</th>
+                <th>Mother's No.</th>
+                <th>Birth Date</th>
+                <th>Add1</th>
+                <th>Add2</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Join Date</th>
+                <th>Edu</th>
+                <th>Prv School</th>
+                <th>Gender</th>
+                <th>Father CNIC</th>
+                <th>Mother's CNIC</th>
+                <th>Father's CNIC Pic</th>
+                <th>Mother's CNIC Pic</th>
+                <th>CNIC Pic</th>
+                <th><button class="btn btn-success btn-By"><i class="bi bi-plus"></i></button></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align:right; padding-right: 50px;"></td>
+                <td style="text-align:right; padding-right: 50px;"></td>
+                <td>
+                    <button type="submit" class="btn btn-link btn-My"><i class="bi bi-pencil"></i></button>
+                    |<button type="submit" class="btn btn-dangerous"><i class="bi bi-trash3" style=" color: red;margin-right:5px"></i></button>
+                </td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,82 @@
+﻿@page "/Class"
+
+
+@code {
+
+}
+
+<div class="form-container">
+    <h2>Class Form</h2>
+    <form>
+        <div class="row mt-2">
+        <div class="col-md-3">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+        </div>
+        <div class="col-md-3">
+            <label for="class_title">Class Title:</label>
+            <input type="text" id="class_title" name="class_title" required>
+        </div>
+        <div class="col-md-3">
+            <label for="session_id">Session ID:</label>
+            <input type="text" id="session_id" name="session_id" required>
+        </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-3">
+            <label for="teacher_id">Teacher ID:</label>
+            <input type="text" id="teacher_id" name="teacher_id" required>
+        </div>
+        
+        <div class="col-md-3">
+            <label for="remarks">Remarks:</label>
+            <input type="text" id="remarks" name="remarks">
+        </div>
+        </div>
+        <div class="col-md-3">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+
+
+<div class="container">
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Class Title</th>
+                <th>Session ID</th>
+                <th>Teacher ID</th>
+                <th>Remarks</th>
+                <th><button class="btn btn-success btn-By"><i class="bi bi-plus"></i></button></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align:right; padding-right: 50px;"></td>
+                <td style="text-align:right; padding-right: 50px;"></td>
+                <td>
+                    <button type="submit" class="btn btn-link btn-My"><i class="bi bi-pencil"></i></button>
+                    |<button type="submit" class="btn btn-dangerous"><i class="bi bi-trash3" style=" color: red;margin-right:5px"></i></button>
+                </td>
+            </tr>
+     
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total</td>
+                <td></td>
+                <td></td>
+                
+            </tr>
+        </tfoot>
+    </table>
+</div>
