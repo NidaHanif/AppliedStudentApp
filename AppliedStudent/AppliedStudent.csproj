@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\ConnectionClass.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Pages\School\Teacher.razor.razor" />
     <Content Remove="wwwroot\DataBase\Students.db" />
   </ItemGroup>
