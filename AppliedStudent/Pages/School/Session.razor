@@ -8,12 +8,14 @@
 @using Microsoft.AspNetCore.Mvc.RazorPages;
 @using Microsoft.AspNetCore.Mvc;
 
+@inject NavigationManager _navigationManager
+
 @code {
 
     
     #region Setup Variables
 
-    public StudentTable tb_Student = new("[Session]");
+    public TableClass tb_Student = new("[Session]");
     public DataTable Mydata;
     
     
@@ -22,11 +24,11 @@
     public Parameters Model { get; set; }
     public string TableName = "Session";
     public string MyMessage = String.Empty;
-    public DataTable Classes = StudentTable.GetTable("Classes");
-    public DataTable Registration = StudentTable.GetTable("ClassRegistration");
-    public DataTable Sessions = StudentTable.GetTable("Session");
-    public DataTable Students = StudentTable.GetTable("Students");
-    public DataTable Teachers = StudentTable.GetTable("Teachers");
+    @*public DataTable Classes = TableClass.GetTable("Classes");
+    public DataTable Registration = TableClass.GetTable("ClassRegistration");
+    public DataTable Sessions = TableClass.GetTable("Session");
+    public DataTable Students = TableClass.GetTable("Students");
+    public DataTable Teachers = TableClass.GetTable("Teachers");*@
     public DataRow MyRow { get; set; }
     public string Title { get; set; }
     
@@ -36,7 +38,7 @@
     protected override void OnInitialized()
     {
         if (ID.Length == 0) { ID = string.Empty; }
-        MyRow = StudentTable.GetRow(TableName, ID);
+        MyRow = TableClass.GetRow(TableName, ID);
         Model = new();
 
         if (MyRow != null)
@@ -51,9 +53,9 @@
                         
                     };
 
-                classesTitle = StudentTable.GetTitle("Classes", Model.ID);
-                SessionTitle = StudentTable.GetTitle("Session", (long)MyRow["ID"]);
-                StudentTitle = StudentTable.GetTitle("Students", (long)MyRow["ID"]);
+                Title = TableClass.GetTitle("Classes", Model.ID);
+                Title = TableClass.GetTitle("Session", (long)MyRow["ID"]);
+                Title = TableClass.GetTitle("Students", (long)MyRow["ID"]);
                 Mydata = GetData();
             }
         }
@@ -76,7 +78,7 @@
         string _TableName = MyRow.Table.TableName;
         long _ID = (long)MyRow["ID"];
         int _Effected;
-        StudentTable _Table = new("Session");
+        TableClass _Table = new("Session");
         var _Date1 = ((DateTime)MyRow["Start Date"]).ToString("yyyy-MM-dd");
         var _Date2 = ((DateTime)MyRow["End Date"]).ToString("yyyy-MM-dd");
 
@@ -128,8 +130,6 @@
         }
 
         Mydata = GetData();
-        //NevigateToYourUrl();
-        //OnInitialized();
     }
 
     private void Delete(long ID)
@@ -286,7 +286,7 @@
             {
                 @foreach (DataRow Row in MyData.Rows)
                 {
-                    var _Title = StudentTable.GetTitle("Session", (long)Row["Title"]);
+                    var _Title = TableClass.GetTitle("Session", (long)Row["Title"]);
                     var _Date1 = ((DateTime)Row["Starting Date"]).ToString("dd-MMM-yyy");
                     var _Date2 = ((DateTime)Row["Ending Date"]).ToString("dd-MMM-yyy");
                     

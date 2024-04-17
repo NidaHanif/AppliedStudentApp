@@ -7,14 +7,14 @@ using AppliedStudent.Codes;
 
 namespace AppliedTax.Codes
 {
-    public class StudentTable
+    public class TableClass
     {
         public SQLiteConnection MyConnection { get; set; }
         public DataTable MyDataTable { get; set; }
         public DataView MyDataView { get; set; }
         public string TableName { get; set; }
 
-        public StudentTable()
+        public TableClass()
         {
             MyConnection = ConnectionClass.GetConnected();
             MyDataTable = new DataTable();
@@ -23,7 +23,7 @@ namespace AppliedTax.Codes
         }
 
         // Constructor
-        public StudentTable(string TableName)
+        public TableClass(string TableName)
         {
             MyDataTable = new DataTable();
 
@@ -44,26 +44,26 @@ namespace AppliedTax.Codes
 
         public static DataRow GetRow(string TableName, int ID)
         {
-            StudentTable _StudentTable = new(TableName);
-            _StudentTable.MyDataView.RowFilter = $"[ID]={ID}";
-            if (_StudentTable.MyDataView.Count == 1)
+            TableClass _TableClass = new(TableName);
+            _TableClass.MyDataView.RowFilter = $"[ID]={ID}";
+            if (_TableClass.MyDataView.Count == 1)
             {
-                return _StudentTable.MyDataView[0].Row;
+                return _TableClass.MyDataView[0].Row;
             }
 
-            return _StudentTable.MyDataTable.NewRow();
+            return _TableClass.MyDataTable.NewRow();
         }
 
         public static DataRow GetRow(string TableName, string RecordCode)
         {
-            StudentTable _StudentTable = new(TableName);
-            _StudentTable.MyDataView.RowFilter = $"[ID]='{RecordCode}'";
-            if (_StudentTable.MyDataView.Count > 0)
+            TableClass _TableClass = new(TableName);
+            _TableClass.MyDataView.RowFilter = $"[ID]='{RecordCode}'";
+            if (_TableClass.MyDataView.Count > 0)
             {
-                return _StudentTable.MyDataView[0].Row;
+                return _TableClass.MyDataView[0].Row;
             }
 
-            return _StudentTable.MyDataTable.NewRow();
+            return _TableClass.MyDataTable.NewRow();
         }
 
         public static string GetTitle(string TableName, long RecID)
