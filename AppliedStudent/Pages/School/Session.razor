@@ -11,239 +11,18 @@
 @inject NavigationManager _navigationManager
 
 @code {
-
-    
-    #region Setup Variables
-
-    public TableClass tb_Student = new("[Session]");
-    public DataTable Mydata;
-    
-    
-    [Parameter]
-    public string ID { get; set; }
-    public Parameters Model { get; set; }
-    public string TableName = "Session";
-    public string MyMessage = String.Empty;
-    @*public DataTable Classes = TableClass.GetTable("Classes");
-    public DataTable Registration = TableClass.GetTable("ClassRegistration");
-    public DataTable Sessions = TableClass.GetTable("Session");
-    public DataTable Students = TableClass.GetTable("Students");
-    public DataTable Teachers = TableClass.GetTable("Teachers");*@
-    public DataRow MyRow { get; set; }
-    public string Title { get; set; }
-    
-
-    #endregion
-
-    protected override void OnInitialized()
-    {
-        if (ID.Length == 0) { ID = string.Empty; }
-        MyRow = TableClass.GetRow(TableName, ID);
-        Model = new();
-
-        if (MyRow != null)
-        {
-            if (MyRow["ID"] != DBNull.Value)
-            {
-                Model = new()
-                    {
-                        ID = (long)MyRow["ID"],
-                        StartingDate = (DateTime)MyRow["Start"],
-                        EndingDate = (DateTime)MyRow["End"],
-                        
-                    };
-
-                Title = TableClass.GetTitle("Classes", Model.ID);
-                Title = TableClass.GetTitle("Session", (long)MyRow["ID"]);
-                Title = TableClass.GetTitle("Students", (long)MyRow["ID"]);
-                Mydata = GetData();
-            }
-        }
-    }
-
-    private DataTable GetData()
-    {
-        tb_Student = new("Session");
-        tb_Student.MyDataView.RowFilter = $"[ID] = '{Model.ID}'";
-        if (tb_Student.MyDataView.Count > 0)
-        {
-            return tb_Student.MyDataView.ToTable();
-        }
-        return tb_Student.MyDataTable.Clone();
-    }
-
-    private void Save()
-    {
-        Model2Row();
-        string _TableName = MyRow.Table.TableName;
-        long _ID = (long)MyRow["ID"];
-        int _Effected;
-        TableClass _Table = new("Session");
-        var _Date1 = ((DateTime)MyRow["Start Date"]).ToString("yyyy-MM-dd");
-        var _Date2 = ((DateTime)MyRow["End Date"]).ToString("yyyy-MM-dd");
-
-        string _Filter = $"[ID]={_ID}";
-        _Table.MyDataView.RowFilter = _Filter;
-        if (_Table.MyDataView.Count == 1)
-        {
-            var _Command = new SQLiteCommand(ConnectionClass.GetConnected());
-            var _Text = new StringBuilder();
-            _Text.Append($"UPDATE [{_TableName}] SET ");
-            _Text.Append($"ID={MyRow["ID"]}, ");
-            _Text.Append($"[Start Date]='{_Date1}',");
-            _Text.Append($"[End Date]='{_Date2}',");
-            _Text.Append($"Title={MyRow["Title"]},");
-            _Text.Append($"WHERE [ID]={_ID}");
-
-            _Command = new(_Text.ToString(), ConnectionClass.GetConnected());
-            _Effected = _Command.ExecuteNonQuery();
-            if (_Effected > 0)
-            {
-                MyMessage = $"{_Effected} Row(s) effected updated successfully.";
-            }
-
-        }
-        else
-        {
-            var _MAXID = (long)tb_Student.MyDataTable.Compute("MAX(Id)", "") + 1;
-            var _Command = new SQLiteCommand(ConnectionClass.GetConnected());
-            var _Text = new StringBuilder();
-            _Text.Append($"INSERT INTO [{_TableName}] VALUES ({_MAXID},");
-            _Text.Append($"'{_Date1}',");
-            _Text.Append($"'{_Date2}',");
-            _Text.Append($"{MyRow["Title"]},");
-            
-            try
-            {
-                _Command = new(_Text.ToString(), ConnectionClass.GetConnected());
-                _Effected = _Command.ExecuteNonQuery();
-                if (_Effected > 0)
-                {
-                    MyMessage = $"{_Effected} Row(s) effected inserted successfully.";
-                }
-            }
-            catch (Exception e)
-            {
-                MyMessage = e.Message;
-
-            }
-        }
-
-        Mydata = GetData();
-    }
-
-    private void Delete(long ID)
-    {
-        if (ID > 0)
-        {
-
-            var TextDelete = "DELETE FROM [Invoice] WHERE [ID] = @ID";
-            var SQLCommand = new SQLiteCommand(TextDelete, ConnectionClass.GetConnected());
-            SQLCommand.Parameters.AddWithValue("@ID", ID);
-            var effected = SQLCommand.ExecuteNonQuery();
-            if (effected > 0)
-            {
-                MyData = GetData();
-                if (MyData.Rows.Count == 0)
-                {
-                    _navigationManager.NavigateTo("/Session");
-
-                }
-                MyMessage = "Record has been deleted successfully";
-            }
-            else
-            {
-                MyMessage = "Record not deleted.";
-            }
-        }
-        else
-        {
-            MyMessage = "Value id not more than zero";
-        }
-    }
-
-    private void Add()
-    {
-        Model.ID = 0;
-        Title = "";
-
-    }
-
-    private void Model2Row()
-    {
-        MyRow["ID"] = Model.ID;
-        MyRow["Starting Date"] = Model.StartingDate;
-        MyRow["Ending Date"] = Model.EndingDate;
-        MyRow["Title"] = Model.Title;
-        
-    }
-
-    private void Submit()
-    {
-        var a = Model.Title;
-    }
-
-    private void Edit(long ID)
-    {
-        tb_Student.MyDataView.RowFilter = $"ID={ID}";
-        if (tb_Student.MyDataView.Count == 1)
-        {
-            MyRow = tb_Student.MyDataView[0].Row;
-            Model = new()
-                {
-                    ID = (long)MyRow["ID"],
-                    StartingDate = (DateTime)MyRow["Starting Date"],
-                    EndingDate = (DateTime)MyRow["Ending Date"],
-                    Title = (long)MyRow["Title"]
-                    
-                };
-        }
-        else
-        {
-            MyMessage = "Record not Found";
-        }
-    }
-
-    #region Variables
-    public class Parameters
-    {
-        public long ID { get; set; }
-        public DateTime StartingDate { get; set; }
-        public DateTime EndingDate { get; set; }
-        public long Title { get; set; }
-        
-    }
-    #endregion
-
 }
 
 
-
-@MyMessage;
-
-}
 <div class="form-container">
     <h2>Session Form</h2>
- <EditForm Model="@Model" OnSubmit="@Submit">
+ <EditForm>
     <div class="row mt-2">
 
             <div class="input-group mb-3 mt-4">
                 <label class="input-group-text" for="inputGroupSelect01">Session Title:</label>
-                <select class="form-select" id="inputGroupSelect01" @bind="@Model.ID">
-                    <option selected>@Title</option>
-                    @foreach (DataRow Row in Sessions.Rows)
-                    {
-                        <option value="@Row["ID"]"> @Row["Title"] </option>
-                    }
-                </select>
             </div>
 
-    @*<div class="col-md-3">
-    <label for="sessionTitle">Session Title:</label>
-                <InputText @bind-Value="Model.Title" class="form-control" data-val="true" data-val-required="The Session Title field is required." id="txtTitle"></InputText>
-                <input type="text" id="sessionTitle" name="sessionTitle" required>
-    
-</div>*@
     <div class="col-md-3">
     <label for="start">Start:</label>
     <input type="datetime-local" id="start" name="start" required>
@@ -261,7 +40,7 @@
     </div>
     </div>
     <div class="col-md-3">
-            <button type="button" @onclick="Save" class="btn btn-success">Save</button>
+            <button type="button" class="btn btn-success">Save</button>
     <input type="submit" value="Submit">
     </div>
 </EditForm>
@@ -281,28 +60,6 @@
         </thead>
 
         <tbody>
-
-            @if (MyData != null)
-            {
-                @foreach (DataRow Row in MyData.Rows)
-                {
-                    var _Title = TableClass.GetTitle("Session", (long)Row["Title"]);
-                    var _Date1 = ((DateTime)Row["Starting Date"]).ToString("dd-MMM-yyy");
-                    var _Date2 = ((DateTime)Row["Ending Date"]).ToString("dd-MMM-yyy");
-                    
-                    <tr>
-                        <td>@Title</td>
-                        <td>@_Date1</td>
-                        <td>@_Date2</td>
-                        <td style="text-align:right; padding-right: 50px;"></td>
-                        <td>
-                            <button type="submit" @onclick='()=> Edit((long)Row["ID"])' class="btn btn-link btn-My"><i class="bi bi-pencil"></i></button>
-                            |<button type="submit" @onclick='() => Delete((long)Row["ID"])' class="btn btn-dangerous"><i class="bi bi-trash3" style=" color: red;margin-right:5px"></i></button>
-                        </td>
-                    
-                    </tr>
-                }
-            }
 
         </tbody>
         <tfoot>

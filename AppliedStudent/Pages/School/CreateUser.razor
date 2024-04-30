@@ -1,0 +1,126 @@
+﻿@page "/CreateStudent"
+
+<h3>CreateStudent</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <EditForm Model="Students">
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <label for="title">Title</label>
+                        <InputText type="text" id="title" name="title"></InputText>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="firstName">First Name</label>
+                        <InputText type="text" id="firstName" name="firstName"></InputText>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="name">Name</label>
+                        <InputText type="text" id="name" name="name"></InputText>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <label for="familyName">Family Name</label>
+                        <InputText type="text" id="familyName" name="familyName"></InputText>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fatherName">Father's Name</label>
+                        <InputText type="text" id="fatherName" name="fatherName"></InputText>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="motherName">Mother's Name</label>
+                        <InputText type="text" id="motherName" name="motherName"></InputText>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <label for="fatherContractNo">Father's Contact No</label>
+                        <input type="text" id="fatherContractNo" name="fatherContractNo">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="motherContactNo">Mother's Contact No</label>
+                        <input type="text" id="motherContactNo" name="motherContactNo">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="birthDate">Birth Date</label>
+                        <input type="date" id="birthDate" name="birthDate">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <label for="address1">Address 1</label>
+                        <input type="text" id="address1" name="address1">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="address2">Address 2</label>
+                        <input type="text" id="address2" name="address2">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="joinDate">Join Date</label>
+                        <input type="date" id="joinDate" name="joinDate">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="education">Education</label>
+                        <input type="text" id="education" name="education">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <label for="previousSchoolName">Previous School Name</label>
+                        <input type="text" id="previousSchoolName" name="previousSchoolName">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" style="width: 70%;">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fatherCNIC">Father's CNIC</label>
+                        <input type="text" id="fatherCNIC" name="fatherCNIC">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <label for="motherCNIC">Mother's CNIC</label>
+                        <input type="text" id="motherCNIC" name="motherCNIC">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pathFNNIC">Path to Father's CNIC</label>
+                        <input type="file" id="pathFNNIC" name="pathFNNIC">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pathMCNIC">Path to Mother's CNIC</label>
+                        <input type="file" id="pathMCNIC" name="pathMCNIC">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="pathPhoto">Path to Photo</label>
+                    <input type="file" id="pathPhoto" name="pathPhoto">
+                </div>
+                <div class="col-md-3">
+                    <input type="submit" value="Submit">
+                </div>
+
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code {
+    Students Students = new();
+}

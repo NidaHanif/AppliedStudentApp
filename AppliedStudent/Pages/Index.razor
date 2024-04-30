@@ -6,8 +6,6 @@
 
 
 @code {
-	public StudentTable tb_Student = new("[Session]"); 
-	
 }
 
 <PageTitle>Index</PageTitle>
@@ -18,9 +16,3 @@ Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-@foreach (DataRow Row in tb_Student.MyDataTable.Rows)
-{
-	@Row["Title"]
-	<br />
-
-}

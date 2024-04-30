@@ -27,6 +27,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Shared\Interfaces\IUser.cs" />
+    <Content Include="Shared\Services\UserManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Authentication\" />
     <Folder Include="wwwroot\DataBase\" />
   </ItemGroup>
